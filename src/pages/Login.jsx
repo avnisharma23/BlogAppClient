@@ -16,7 +16,7 @@ import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined
 // #endregion
 
 
-export default function Login() {
+ function LoginPage() {
     const [user, setUser] = useState({email: '', password: ''});
     const { storeToken, authenticateUser } = useContext(AuthContext);
     const navigate = useNavigate();
@@ -31,13 +31,13 @@ export default function Login() {
     }
     const handleSubmit = (e) => {
         e.preventDefault()
-
+    
         axios.post(`${process.env.REACT_APP_API_URL}/auth/login`, user)
             .then((response) =>{
                 // store the token in localStorage
                 storeToken(response.data.authToken)
                 authenticateUser()
-                navigate("/")
+                navigate("/newblog")
             } )
             .catch(err => console.error(err))
     }
@@ -83,7 +83,7 @@ export default function Login() {
                     </Grid>                      
                 </Grid>
                 <Button 
-                    onClick={handleChange}
+                    onClick={handleSubmit}
                     fullWidth sx={{
                         mt: 3, mb: 2
                     }}
@@ -103,3 +103,5 @@ export default function Login() {
         </Container>
     )
 }
+
+export default LoginPage;

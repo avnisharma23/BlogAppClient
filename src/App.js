@@ -11,11 +11,15 @@ import ProfilePage from '../src/pages/Profile';
 import SignupPage from '../src/pages/Signup';
 
 
+
 function App() {
   return (
     <div className="App">
+     {/*  <SignupPage/> */}
       <Routes>
-        <Route path='/' element={<SignupPage />}/>
+        <Route path='/signup' element={<SignupPage/>}></Route>
+        <Route path='/blogdetails' element={<BlogDetailsPage/>}></Route>
+        <Route path='/newblog' element={<NewBlogPage/>}></Route>
         <Route path='/login' element={<LoginPage />} />
       </Routes>
     </div>

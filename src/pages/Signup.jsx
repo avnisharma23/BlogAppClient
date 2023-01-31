@@ -31,14 +31,15 @@ const SignupPage = ()=> {
         setUser(user => ({...user, [name]: value}))
     }
 
-    /* const handleSubmit = (e) => {
+    const handleSubmit = (e) => {
+        
         e.preventDefault()
-        ///
+        console.log(process.env.REACT_APP_API_URL);
         axios.post(`${process.env.REACT_APP_API_URL}/auth/signup`, user)
             .then(() => navigate('/login'))
             .catch(err => console.error(err))
         
-    } */
+    }
     return (
         <Container maxWidth="xs">
             <CssBaseline />
@@ -94,7 +95,7 @@ const SignupPage = ()=> {
                     </Grid>
                     
                 </Grid>
-                <Button fullWidth sx={{mt: 3, mb: 2 }}>Register</Button>
+                <Button fullWidth sx={{mt: 3, mb: 2 }} onClick={handleSubmit}>Sign Up</Button>
                 <Grid container justifyContent="flex-end">
                     <Grid item>
                         <Link to="/login">

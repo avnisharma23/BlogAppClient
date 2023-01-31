@@ -6,17 +6,21 @@ import App from './App';
 import {BrowserRouter as Router} from 'react-router-dom';
 import { AuthProviderWrapper } from './context/auth.context';
 import reportWebVitals from './reportWebVitals';
+import { ThemeProvider } from '@mui/material/styles'
+import lightTheme from './themes/theme';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-      
-     <Router>
-      <AuthProviderWrapper>
-      <App />
-        </AuthProviderWrapper>
-      </Router>
-    
+     
+      <Router>
+      <ThemeProvider theme={lightTheme}>
+          <AuthProviderWrapper>
+          <App />
+            </AuthProviderWrapper>
+          </ThemeProvider>
+        </Router>
+     
   </React.StrictMode>
 );
 
