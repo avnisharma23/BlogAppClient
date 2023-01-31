@@ -3,14 +3,14 @@ import axios from "axios";
 import { useParams, useNavigate } from 'react-router-dom';
 import {
   Container, Paper, Button, TextField,
-  Stack, IconButton, Typography
+  Stack
 } from '@mui/material';
 
 
 
 // #region -----------( ICONS )-------------
-import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
-import EditIcon from '@mui/icons-material/Edit'
+/* import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import EditIcon from '@mui/icons-material/Edit' */
 // #endregion -----------( ICONS )-------------
 
 function BlogDetailPage(props) {

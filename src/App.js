@@ -4,10 +4,10 @@ import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import BlogDetail from '../src/pages/BlogDetail';
 import BlogListPage from '../src/pages/BlogList';
-import HomePage from '../src/pages/Home';
+/* import HomePage from '../src/pages/Home'; */
 import LoginPage from '../src/pages/Login';
 import NewBlogPage from '../src/pages/NewBlog';
-import ProfilePage from '../src/pages/Profile';
+
 import SignupPage from '../src/pages/Signup';
 
 
