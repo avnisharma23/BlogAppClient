@@ -17,11 +17,12 @@ import {AuthContext} from '../context/auth.context';
 
 export default function NavBar() {
     
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [ setAnchorElNav] = React.useState(null);
+  const [ setAnchorElUser] = React.useState(null);
   const navigate = useNavigate()
-  const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
+  const {  logOutUser } = useContext(AuthContext);
   const linkStyle = {textDecoration: "none"};
+   // eslint-disable-next-line 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
@@ -30,17 +31,8 @@ export default function NavBar() {
     navigate('/')
     setAnchorElUser(null);
   };
-  const handleLogInClick = () => {
-    navigate('/login')
-    
-  };
-
-  const handleSignUpClick = (e) => {
-    e.preventDefault();
-    navigate('/signup')
-    
-  };
-
+  
+ 
   return (
     <Box>
       <AppBar position="static">
