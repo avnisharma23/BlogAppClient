@@ -1,14 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import axios from "axios";
-import {
-    Grid,
-    Button, Container, Tooltip,
-    Box, List, ListItem, ListItemText,
-} from '@mui/material'
-
+import { Grid,Container, Tooltip,List, ListItem, ListItemText } from '@mui/material'
 import Masonry from '@mui/lab/Masonry'
-
 import BlogCard from '../components/BlogCard'
 import {truncateString} from '../utils/utils'
 
@@ -53,9 +47,6 @@ import {truncateString} from '../utils/utils'
 
 
                     <Grid item xs={12} md={9}>
-                        <Box sx={{display: 'flex', justifyContent: 'flex-end', mb: 2}}>
-                            <Button>Create Blog</Button>
-                        </Box>
                         <Masonry columns={2}>
                             {myBlogs?.map(blog => (
                                 <BlogCard blog={blog} key={blog._id} />

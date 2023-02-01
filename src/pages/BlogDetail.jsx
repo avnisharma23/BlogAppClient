@@ -17,7 +17,7 @@ function BlogDetailPage(props) {
 
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-
+  
     const { blogId } = useParams();
              // <== ADD
     const navigate = useNavigate()
@@ -68,8 +68,7 @@ function BlogDetailPage(props) {
           .catch((err) => console.log(err));
       };  
     
-      
-
+   
     return (
         
             <Container maxWidth='md' sx={{mt: 3, mb: 5}}>

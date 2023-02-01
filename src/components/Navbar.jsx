@@ -1,6 +1,6 @@
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
+
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
@@ -17,16 +17,12 @@ import {AuthContext} from '../context/auth.context';
 
 export default function NavBar() {
     
-  const [ setAnchorElNav] = React.useState(null);
+  
   const [ setAnchorElUser] = React.useState(null);
   const navigate = useNavigate()
-  const {  logOutUser } = useContext(AuthContext);
+  const {isLoggedIn,logOutUser} = useContext(AuthContext);
   const linkStyle = {textDecoration: "none"};
-   // eslint-disable-next-line 
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
+   
   const handleLogoutClick = () => {
     navigate('/')
     setAnchorElUser(null);
@@ -34,34 +30,48 @@ export default function NavBar() {
   
  
   return (
-    <Box>
+  
       <AppBar position="static">
         <Toolbar>
        
           <Typography>
             Blog Application
           </Typography>
-          
-          <MenuItem>
-             <Link to="/signup" style={linkStyle}>
-               <Button variant="outlined" sx={{ border: '1px solid #black'}}><SignupIcon sx={{ mr: 2 }}/>Sign Up</Button>
-             </Link>
-          </MenuItem>
-          <Link to="/login" style={linkStyle}>
-                <Button variant="outlined" sx={{ my: 2, border: '1px solid #black'}}><LoginIcon sx={{ mr: 2 }}/>Login</Button>
-          </Link>
-           
-              <MenuItem onClick={handleLogoutClick}>
-              <Link to="/" style={linkStyle}>
-                <Button variant="outlined" sx={{ my: 2, border: '1px solid #black'}}><LogoutIcon sx={{ mr: 2 }} onClick={logOutUser}/>LogOut</Button>
+          {!isLoggedIn && (
+          <>
+            <MenuItem>
+              <Link to="/signup" style={linkStyle}>
+                <Button variant="outlined" sx={{ border: '1px solid #black'}}><SignupIcon sx={{ mr: 2 }}/>Sign Up</Button>
               </Link>
-              </MenuItem>
-             
-          
-                
-       
+            </MenuItem>
+            <MenuItem>
+              <Link to="/login" style={linkStyle}>
+                    <Button variant="outlined" sx={{  border: '1px solid #black'}}><LoginIcon sx={{ mr: 2 }}/>Login</Button>
+              </Link>
+            </MenuItem>
+            </>
+          )}
+        {isLoggedIn && (
+          <>
+            <MenuItem onClick={handleLogoutClick}>
+                <Link to="/" style={linkStyle}>
+                  <Button variant="outlined" sx={{ my: 2, border: '1px solid #black'}}><LogoutIcon sx={{ mr: 2 }} onClick={logOutUser}/>LogOut</Button>
+                </Link>
+            </MenuItem>
+            <MenuItem>
+            <Link to="/bloglist" style={linkStyle}>
+                  <Button variant="outlined" sx={{ my: 2, border: '1px solid #black'}}>My Blogs</Button>
+            </Link>
+            </MenuItem>
+            <MenuItem>
+            <Link to="/newblog" style={linkStyle}>
+                  <Button variant="outlined" sx={{ my: 2, border: '1px solid #black'}}>Create Blog</Button>
+            </Link>
+            </MenuItem>
+          </>
+        )}
         </Toolbar>
       </AppBar>
-    </Box>
+   
   );
 }
