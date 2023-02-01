@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import {truncateString} from '../utils/utils'
 
 export default function BlogCard(props) {
-    console.log(props);
+    //console.log(props);
     const navigate = useNavigate();
     return (
         <Card variant='shaded'>

@@ -9,13 +9,15 @@ import LoginPage from '../src/pages/Login';
 import NewBlogPage from '../src/pages/NewBlog';
 
 import SignupPage from '../src/pages/Signup';
-
+import Navbar from './components/Navbar';
 
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" >
      {/*  <SignupPage/> */}
+
+     <Navbar/>
       <Routes>
         <Route path='/signup' element={<SignupPage/>}></Route>
         <Route path='/blogdetails/:blogId' element={<BlogDetail/>}></Route>

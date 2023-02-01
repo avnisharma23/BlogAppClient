@@ -19,6 +19,7 @@ import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined
  function LoginPage() {
     const [user, setUser] = useState({email: '', password: ''});
     const { storeToken, authenticateUser } = useContext(AuthContext);
+    const [errorMessage, setErrorMessage] = useState(undefined);
     const navigate = useNavigate();
 
     const [showPassword, setShowPassword] = useState(false)
@@ -39,7 +40,10 @@ import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined
                 authenticateUser()
                 navigate("/newblog")
             } )
-            .catch(err => console.error(err))
+            .catch((error) => {
+                const errorDescription = error.response.data.message;
+                setErrorMessage(errorDescription);
+              })
     }
     return (
         <Container maxWidth="xs">
@@ -58,7 +62,7 @@ import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined
                 <Typography component="h1" variant="h5">
                     Login
                 </Typography>
-
+                { errorMessage && <p className="error-message">{errorMessage}</p> }
                 <Grid container spacing={2} sx={{mt: 3}}>
   
                     <Grid item xs={12}>
@@ -90,7 +94,7 @@ import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined
                 >
                     Login
                 </Button>
-
+              
                 <Grid container justifyContent="flex-end">
                     <Grid item>
                         <Link to="/register">

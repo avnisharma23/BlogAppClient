@@ -23,6 +23,7 @@ const SignupPage = ()=> {
     const [user, setUser] = useState({firstName: '',lastName: '',email: '', password: ''});
 
     const [showPassword, setShowPassword] = useState({password: false, confirmPassword: false})
+    const [errorMessage, setErrorMessage] = useState(undefined);
     const navigate = useNavigate()
 
     const handleChange = (e) => {
@@ -36,14 +37,20 @@ const SignupPage = ()=> {
         e.preventDefault()
         console.log(process.env.REACT_APP_API_URL);
         axios.post(`${process.env.REACT_APP_API_URL}/auth/signup`, user)
-            .then(() => navigate('/login'))
-            .catch(err => console.error(err))
+        .then((response) => {
+            navigate('/login');
+          })
+          .catch((error) => {
+            const errorDescription = error.response.data.message;
+            setErrorMessage(errorDescription);
+          })
         
     }
     return (
+       
         <Container maxWidth="xs">
             <CssBaseline />
-
+           
             <Box  
                 sx={{
                     mt: 8, display: 'flex', mb: 6,
@@ -57,6 +64,7 @@ const SignupPage = ()=> {
                 <Typography component="h1" variant="h5">
                     Sign Up
                 </Typography>
+                { errorMessage && <p className="error-message">{errorMessage}</p> }
                 <Grid container spacing={2} sx={{mt: 3}}>
                     <Grid item xs={12}>
                         <TextField
@@ -96,6 +104,7 @@ const SignupPage = ()=> {
                     
                 </Grid>
                 <Button fullWidth sx={{mt: 3, mb: 2 }} onClick={handleSubmit}>Sign Up</Button>
+               
                 <Grid container justifyContent="flex-end">
                     <Grid item>
                         <Link to="/login">

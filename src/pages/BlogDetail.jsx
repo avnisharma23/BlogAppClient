@@ -34,25 +34,26 @@ function BlogDetailPage(props) {
              We update the state with the Blog data coming from the response.
              This way we set inputs to show the actual title and description of the project
            */
-           const oneBlog = response.data;
-           console.log("Hello",oneBlog);
-           setTitle(oneBlog.title);
-           setContent(oneBlog.description);
+           //const oneBlog = response.data;
+           console.log("Hello",response.data);
+           setTitle(response.data.title);
+           setContent(response.data.content);
          })
          .catch((error) => console.log(error));
        
      }, [blogId]);
 
-   /*  const handleSubmit = (e) => {
+   const handleSubmit = (e) => {
       e.preventDefault();
         const storedToken = localStorage.getItem('authToken');
+        console.log("Stored Token",storedToken)
         //update the Blog
         const updatedBlog = {title, content}
-
+        console.log("updated",updatedBlog);
         axios.put(`${process.env.REACT_APP_API_URL}/api/blogs/${blogId}`, updatedBlog, { headers: { Authorization: `Bearer ${storedToken}` } })
-            .then(() => navigate(`/blogs/${blogId}`))
+            .then(() => navigate("/bloglist"))
             .catch(err => console.log(err)) 
-    } */
+    } 
         
       const deleteBlog = () => {                    //  <== ADD
         // Make a DELETE request to delete the blog
@@ -86,7 +87,7 @@ function BlogDetailPage(props) {
                                 />
 
                                 <Stack spacing={2} direction='row'>
-                                    <Button variant='contained'>Update</Button>
+                                    <Button variant='contained' onClick={handleSubmit}>Update</Button>
                                     <Button variant='outlined' sx={{color: 'primary.main'}} onClick={deleteBlog}>Delete</Button>
                                 </Stack>
                             </Stack>

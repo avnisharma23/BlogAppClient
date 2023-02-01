@@ -23,7 +23,7 @@ function NewBlog () {
 
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
-
+    const [errorMessage, setErrorMessage] = useState(undefined);
     const { user } = useContext(AuthContext);
 
     const [onGenerate, setOnGenerate] = useState(false);
@@ -46,9 +46,13 @@ function NewBlog () {
         // Reset the state
         setTitle("");
         setContent("");
+        setErrorMessage("");
         
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        const errorDescription = error.response.data.message;
+        setErrorMessage(errorDescription);
+      })
     }
     const [loremOptions, setLoremOptions] = useState({
         minWordPerSentence: 3,
@@ -85,6 +89,9 @@ function NewBlog () {
     return (
         
             <Container maxWidth="md" sx={{py: 2, my: 1, backgroundColor: 'silver'}} component={Paper}>
+                
+                 <Typography component="h1" variant="h5" text-align='center'>Create Blog</Typography>
+                  { errorMessage && <p className="error-message">{errorMessage}</p> }
                 <Grid container spacing={2}>
                     <Grid item>
                         <FormControlLabel align='left' 
