@@ -88,7 +88,7 @@ function NewBlog () {
     }
     return (
         
-            <Container maxWidth="md" sx={{py: 2, my: 1, backgroundColor: 'silver'}} component={Paper}>
+            <Container maxWidth="md" sx={{py: 2, my: 1, backgroundColor: 'cream'}} component={Paper}>
                 
                  <Typography component="h1" variant="h5" text-align='center'>Create Blog</Typography>
                   { errorMessage && <p className="error-message">{errorMessage}</p> }

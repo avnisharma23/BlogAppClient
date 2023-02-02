@@ -38,8 +38,10 @@ export default function NavBar() {
           <Typography>
             Blog Application
           </Typography>
+          
           {!isLoggedIn && (
           <>
+          
             <MenuItem>
               <Link to="/signup" style={linkStyle}>
                 <Button variant="outlined" sx={{ border: '1px solid #black'}}><SignupIcon sx={{ mr: 2 }}/>Sign Up</Button>
@@ -50,6 +52,7 @@ export default function NavBar() {
                     <Button variant="outlined" sx={{  border: '1px solid #black'}}><LoginIcon sx={{ mr: 2 }}/>Login</Button>
               </Link>
             </MenuItem>
+           
             </>
           )}
         {isLoggedIn && (
@@ -69,9 +72,12 @@ export default function NavBar() {
                     <Button variant="outlined" sx={{ my: 2, border: '1px solid #black'}}>Create Blog</Button>
               </Link>
             </MenuItem>
+          
           </>
+          
         )}
         </Toolbar>
+
       </AppBar>
       </React.Fragment>
   );
