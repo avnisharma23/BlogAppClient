@@ -31,6 +31,7 @@ export default function NavBar() {
  
   return (
   
+    <React.Fragment>
       <AppBar position="static">
         <Toolbar>
        
@@ -59,19 +60,19 @@ export default function NavBar() {
                 </Link>
             </MenuItem>
             <MenuItem>
-            <Link to="/bloglist" style={linkStyle}>
-                  <Button variant="outlined" sx={{ my: 2, border: '1px solid #black'}}>My Blogs</Button>
-            </Link>
+              <Link to="/bloglist" style={linkStyle}>
+                    <Button variant="outlined" sx={{ my: 2, border: '1px solid #black'}}>My Blogs</Button>
+              </Link>
             </MenuItem>
             <MenuItem>
-            <Link to="/newblog" style={linkStyle}>
-                  <Button variant="outlined" sx={{ my: 2, border: '1px solid #black'}}>Create Blog</Button>
-            </Link>
+              <Link to="/newblog" style={linkStyle}>
+                    <Button variant="outlined" sx={{ my: 2, border: '1px solid #black'}}>Create Blog</Button>
+              </Link>
             </MenuItem>
           </>
         )}
         </Toolbar>
       </AppBar>
-   
+      </React.Fragment>
   );
 }

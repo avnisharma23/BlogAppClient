@@ -25,7 +25,7 @@ const SignupPage = ()=> {
     const [showPassword, setShowPassword] = useState({password: false, confirmPassword: false})
     const [errorMessage, setErrorMessage] = useState(undefined);
     const navigate = useNavigate()
-
+    const linkStyle = {textDecoration: "none"};
     const handleChange = (e) => {
         const name = e.target.name;
         const value = e.target.value;
@@ -107,7 +107,7 @@ const SignupPage = ()=> {
                
                 <Grid container justifyContent="flex-end">
                     <Grid item>
-                        <Link to="/login">
+                        <Link to="/login" style={linkStyle}>
                             Already have an account? Sign in
                         </Link>
                     </Grid>

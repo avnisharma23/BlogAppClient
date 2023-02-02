@@ -24,7 +24,7 @@ import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined
 
     const [showPassword, setShowPassword] = useState(false)
     
-
+    const linkStyle = {textDecoration: "none"};
      const handleChange = (e) => {
         const name = e.target.name;
         const value = e.target.value;
@@ -95,10 +95,10 @@ import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined
                     Login
                 </Button>
               
-                <Grid container justifyContent="flex-end">
+                <Grid container justifyContent="flex-center">
                     <Grid item>
-                        <Link to="/register">
-                            Don't have an account? Register
+                        <Link to="/signup" style={linkStyle}>
+                            Don't have an account? Sign Up
                         </Link>
                     </Grid>
                 </Grid>

@@ -11,22 +11,19 @@ import SignupPage from '../src/pages/Signup';
 import Navbar from './components/Navbar';
 import IsPrivate from './components/IsPrivate';
 import IsAnon from './components/IsAnon';
-
 function App() {
  
   return (
     <div className="App">
-     {/*  <SignupPage/> */}
-
-     <Navbar/>
+     
+   <Navbar/>
+  
       <Routes>
-        
         <Route path='/signup' element={<IsAnon><SignupPage/></IsAnon>}></Route>
         <Route path='/login' element={<IsAnon><LoginPage /></IsAnon>} />
         <Route path='/blogdetails/:blogId' element={<IsPrivate><BlogDetail/></IsPrivate>}></Route>
         <Route path='/newblog' element={<IsPrivate><NewBlogPage/></IsPrivate>}></Route>
         <Route path='/bloglist' element={<IsPrivate><BlogListPage /></IsPrivate>}></Route>
-
       </Routes>
     </div>
   );
