@@ -64,7 +64,7 @@ export default function NavBar() {
             </MenuItem>
             <MenuItem>
               <Link to="/bloglist" style={linkStyle}>
-                    <Button variant="outlined" sx={{ my: 2, border: '1px solid #black'}}>My Blogs</Button>
+                    <Button variant="outlined" sx={{ my: 2, border: '1px solid #black'}}>Blogs</Button>
               </Link>
             </MenuItem>
             <MenuItem>

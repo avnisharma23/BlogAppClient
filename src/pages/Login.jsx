@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from '../context/auth.context';
-
+import LoadingButton from '@mui/lab/LoadingButton';
 import {
     Grid, TextField, Button, Typography,
     CssBaseline, Container, Box, Avatar,
@@ -20,6 +20,7 @@ import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined
     const [user, setUser] = useState({email: '', password: ''});
     const { storeToken, authenticateUser } = useContext(AuthContext);
     const [errorMessage, setErrorMessage] = useState(undefined);
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
     const [showPassword, setShowPassword] = useState(false)
@@ -32,7 +33,7 @@ import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined
     }
     const handleSubmit = (e) => {
         e.preventDefault()
-    
+        setLoading(true)
         axios.post(`${process.env.REACT_APP_API_URL}/auth/login`, user)
             .then((response) =>{
                 // store the token in localStorage
@@ -43,6 +44,9 @@ import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined
             .catch((error) => {
                 const errorDescription = error.response.data.message;
                 setErrorMessage(errorDescription);
+              })
+              .finally(() => {
+                setLoading(false)
               })
     }
     return (

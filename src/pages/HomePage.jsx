@@ -2,7 +2,7 @@ import React from 'react'
 
 export const HomePage = () => {
   return (
-    <div style={{height: '765px'}}></div>
+    <div style={{height: '730'}}></div>
   )
 }
 

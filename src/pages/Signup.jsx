@@ -35,7 +35,6 @@ const SignupPage = ()=> {
     const handleSubmit = (e) => {
         
         e.preventDefault()
-        console.log(process.env.REACT_APP_API_URL);
         axios.post(`${process.env.REACT_APP_API_URL}/auth/signup`, user)
         .then((response) => {
             navigate('/login');

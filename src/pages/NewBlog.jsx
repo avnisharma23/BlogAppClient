@@ -36,11 +36,15 @@ function NewBlog () {
     })  */
 
     const handleSave = (e) => {
-        e.preventDefault();
+        /* e.preventDefault(); */
         const storedToken = localStorage.getItem('authToken');
         const userId = user._id;
-        console.log(userId);
         const newBlog = { title, content,userId}
+        if(newBlog.title.trim.length < 0 && newBlog.content.trim.length < 0)
+        {
+            alert("blank");
+            setErrorMessage("Please provide a blog title and content.")
+        }
         axios.post(`${process.env.REACT_APP_API_URL}/api/blogs`, newBlog, { headers: { Authorization: `Bearer ${storedToken}` } })
         .then((response) => {
         // Reset the state

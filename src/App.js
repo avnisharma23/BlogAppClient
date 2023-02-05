@@ -11,7 +11,7 @@ import Navbar from './components/Navbar';
 import IsPrivate from './components/IsPrivate';
 import IsAnon from './components/IsAnon';
 import HomePage from '../src/pages/HomePage';
- 
+ import Footer from "./components/Footer";
 function App() {
  
   return (
@@ -27,7 +27,7 @@ function App() {
         <Route path='/newblog' element={<IsPrivate><NewBlogPage/></IsPrivate>}></Route>
         <Route path='/bloglist' element={<IsPrivate><BlogListPage /></IsPrivate>}></Route>
       </Routes>
-      
+      <Footer/>
     </div>
     
   );
