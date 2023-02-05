@@ -87,9 +87,11 @@ function BlogDetailPage(props) {
   
       axios.post(`${process.env.REACT_APP_API_URL}/api/comment`, newComment, { headers: { Authorization: `Bearer ${storedToken}` } })
           .then(() => {
-              setTitle("");
-              setContent("");
-              navigate("/bloglist");
+              //setTitle("");
+              //setContent("");
+              //setComment("");
+              //navigate(`/blogdetails/${blogId}`);
+              window.location.reload();
           })
           .catch((error) => {
             const errorDescription = error.response.data.message;

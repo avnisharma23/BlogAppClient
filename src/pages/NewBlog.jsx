@@ -51,6 +51,7 @@ function NewBlog () {
         setTitle("");
         setContent("");
         setErrorMessage("");
+        navigate("/bloglist");
         
       })
       .catch((error) => {
