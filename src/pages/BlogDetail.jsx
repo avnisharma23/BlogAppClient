@@ -79,7 +79,8 @@ function BlogDetailPage(props) {
           .catch((err) => console.log(err));
       };  
     //#Write comment
-    const commentBlog = () => {                    //  <== ADD
+    const commentBlog = (e) => {  
+      e.preventDefault();                  //  <== ADD
       // Make a comment request to delete the blog
       const storedToken = localStorage.getItem('authToken');
       const newComment = { comment, blog: blogId}
