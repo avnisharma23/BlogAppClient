@@ -9,7 +9,9 @@ In Blog App , User can signup and create Blog. User have faciltiy to update and 
 -  **Create Blog:** As a user I can create an Blog.
 -  **Update Blog:** As a user I can update my Blog.
 -  **Delete Blog:** As a user I can delete my Blog.
--  **Blog List:** As a user I can see my Blog list.
+-  **Blog List:** Looged in User have right to see all blogs.
+-  **Comment :** Logged in User can comment on any blogs.
+
 
 
 <br>
@@ -31,6 +33,7 @@ Page                                        |
 ## Components
 - BlogCard
 - NavBar
+-Comment Card
 
 ## Backlog
 
